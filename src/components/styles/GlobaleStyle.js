@@ -1,18 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 import { device } from "./mq";
+
 const GlobalStyle = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css?family=Poppins:400");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 :root {
-  --clr-1: ${(props) => props.theme.clr__Blue};
-  --clr-2: ${(props) => props.theme.clr__Cyan};
-  --clr-3: ${(props) => props.theme.clr__GrayishBlue};
-  --clr-4: ${(props) => props.theme.clr__Orange};
-  --clr-5: ${(props) => props.theme.clr__VeryDarkBlue};
-  --clr-6: ${(props) => props.theme.clr__Blue};
-  --clr-7: ${(props) => props.theme.clr__VeryLightGray};
+  --clr-1: ${(props) => props.theme.bg_Violet};
+  --clr-2: ${(props) => props.theme.bg_SoftMagenta};
+  --clr-3: ${(props) => props.theme.bg_VeryLightGray};
 
 
   --dark80: rgba(48, 79, 89, 0.8);
@@ -20,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
   --transition: all 0.3s ease 0s;
 
   --ff: ${(props) => props.theme.font};
-  --fw-reg: 300;
-  --fw-bold: 900;
+  --fw-reg: 400;
+  --fw-bold: 600;
   --fs-h1: 2.2rem;
   --fs-h2: 2rem;
   --fs-h3: 1.6rem;
@@ -30,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   --fs-body: 1rem;
 
   // Espacements
-  --spacer:2rem;
+  --spacer:1rem;
 
   // Shadow
 
@@ -58,76 +55,32 @@ const GlobalStyle = createGlobalStyle`
 
 html {
   box-sizing: border-box;
-  // font-size: clamp(100%, calc(1rem + 2vw), 24px);
-  
+  height: 100vh;
+  min-height: 100vh;  
+  font-size: clamp(100%, calc(1rem + 2vw), 24px);
 }
 
 body {
 
-  align-items: center;
-  background-color: var(--clr-7);
-  color: var(--clr-5);
+  align-items: stretch;
   display: flex;
   display: flex;
   flex-flow: column;
   font-family: var(--ff);
   height: 100vh;
-  justify-content: center;
-  line-height: 1.5;
   min-height: 100vh;
-}
-// Make #root div use all available space
+  line-height: 1.5;
+  color: var(--clr-3);
+  background-color: var(--clr-1);
+  background-image: url("assets/images/bg-mobile.svg");
 
-/**
-* Preventing Text Overflow 
-*/
-p,
-li,
-h1,
-h2,
-h3,
-h4 {
-  // Help prevent overflow of long words/names/URLs
-  overflow-wrap: break-word;
 
-  // Optional, not supported for all languages
-  hyphens: auto;
-}
-
-$type-ratios: (
-  "minorSecond": 1.067,
-  "majorSecond": 1.125,
-  "minorThird": 1.2,
-  "majorThird": 1.25,
-  "perfectFourth": 1.333,
-  "augmentedFourth": 1.414,
-  "perfectFifth": 1.5,
-  "goldenRatio": 1.618,
-);
-
-// Recommended starting point
-$type-base-size: 1rem;
-
-// Select by key of map, or use a custom value
-// $type-size-ratio: type-ratio(goldenRatio);
-
-// List in descending order to prevent extra sort function
-$type-levels: 4, 3, 2, 1;
-
-$level-size: $type-base-size;
-
-@each $level in $type-levels {
-  $level-size: $level-size * map-get($type-ratios, "goldenRatio");
-
-  h#{$level} {
-    font-size: $level-size;
-  }
 }
 
 img {
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   object-fit: cover;
 }
 
@@ -176,18 +129,7 @@ ul {
   }
 }
 
-.grid{
-  display: grid;
-  gap:1rem;
-  grid-template-columns: repeat(3, 1fr);
-  
-  @media ${device.tablet}{
-      grid-template-columns: repeat(6, 1fr);
-  }
-  @media ${device.laptop}{
-      grid-template-columns: repeat(12, 1fr);
-  }
-}
+
 
 .split {
   --gap: 2em;
@@ -195,7 +137,7 @@ ul {
   gap: var(--gap);
   flex-wrap: wrap;
   justify-content: center;
-glo
+
   // & > * {
   //   --min-width: 15em;
   //   --flex-basis: 30%;
@@ -252,5 +194,7 @@ glo
   --tw-shadow: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 `;
+
 export { GlobalStyle };

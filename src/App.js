@@ -8,7 +8,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <RenderRoutes routes={ROUTES} />;
+      <RenderRoutes routes={ROUTES} />
     </ThemeProvider>
   );
 };

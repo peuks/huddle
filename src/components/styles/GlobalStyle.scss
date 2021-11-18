@@ -21,8 +21,7 @@ $type-levels: 4, 3, 2, 1;
 $level-size: $type-base-size;
 
 @each $level in $type-levels {
-  $level-size: $level-size * 1.15;
-
+  $level-size: $level-size * map-get($type-ratios, "majorSecond");
   h#{$level} {
     font-size: $level-size;
   }
